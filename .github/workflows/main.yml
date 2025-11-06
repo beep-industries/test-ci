@@ -1,0 +1,11 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    uses: beep-industries/actions/.github/workflows/rust-build-push-main.yml@ci/github-actions
+    secrets: inherit
