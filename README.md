@@ -46,6 +46,36 @@ on:
 
 ---
 
+## GitHub Repository Rules
+
+This template repository should be configured with standardized repository rules to ensure code quality and security.
+
+### Import Organization Rules
+
+The recommended repository rules are defined in the [beep-industries/actions](https://github.com/beep-industries/actions) repository:
+
+**Rules file**: [rules/main.json](https://github.com/beep-industries/actions/blob/main/rules/main.json)
+
+### How to Import Rules
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Settings** > **Rules** > **Rulesets**
+3. Click **New ruleset** > **Import a ruleset**
+4. Import the `main.json` file from the [beep-industries/actions](https://github.com/beep-industries/actions/blob/main/rules/main.json) repository
+
+### Key Rules Included
+
+The ruleset enforces:
+- Branch deletion protection
+- Force push protection (blocks non-fast-forward pushes)
+- Linear commit history requirement (no merge commits)
+- Pull request review requirements (minimum 1 approval)
+- Squash merge only (enforces clean history)
+
+For more details, see the [rules documentation](https://github.com/beep-industries/actions/issues/8).
+
+---
+
 ## How to Create and Push a Tag
 
 To trigger a release build:
