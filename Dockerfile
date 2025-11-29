@@ -1,12 +1,12 @@
-# Stage 1: Build avec Debian
-FROM debian:bullseye AS builder
+# Stage 1: Build avec Ubuntu 20.04
+FROM ubuntu:20.04 AS builder
 # Installer les dépendances nécessaires
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     git \
     musl-tools \
-    libssl-dev=1.1.1n-0+deb11u4  # Version vulnérable à CVE-2022-0778
+    libssl1.1=1.1.1f-1ubuntu2.19  # Version vulnérable à CVE-2021-3450
 WORKDIR /app
 # Installer Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
