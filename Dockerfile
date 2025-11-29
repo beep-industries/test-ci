@@ -1,10 +1,9 @@
-# Stage 1: Build
-FROM rust:alpine AS builder
-
-# Install musl-dev for static linking
-RUN apk add --no-cache musl-dev
+# Stage 1: Build avec une version d'Alpine plus ancienne
+FROM alpine:3.15 AS builder
+# Installer les dépendances nécessaires
+RUN apk add --no-cache musl-dev rust cargo
 # Ajouter une dépendance vulnérable pour tester Trivy
-RUN apk add --no-cache zlib=1.2.12-r3  # Version vulnérable à CVE-2022-37434
+RUN apk add --no-cache openssl=1.1.1l-r0  # Version vulnérable à CVE-2021-3711
 
 WORKDIR /app
 
