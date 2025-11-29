@@ -1,9 +1,10 @@
 # Stage 1: Build
 FROM rust:alpine AS builder
 
-RUN sed -i 's/v3\.22/v3\.18/g' /etc/apk/repositories && \
-    apk update && \
-    apk add --no-cache musl-dev openssl=1.1.1l  # Version vulnérable
+# Install musl-dev for static linking
+RUN apk add --no-cache musl-dev
+# Ajouter une dépendance vulnérable pour tester Trivy
+RUN apk add --no-cache zlib=1.2.12-r3  # Version vulnérable à CVE-2022-37434
 
 WORKDIR /app
 
