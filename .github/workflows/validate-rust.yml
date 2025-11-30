@@ -1,0 +1,8 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  build-and-test:
+    uses: beep-industries/actions/.github/workflows/validate-rust.yml@feat/cve
